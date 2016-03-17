@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-1.9.1/jquery.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //1.为#city的每一个li添加click响应函数：点击时，li被删除
+            $("city li").click(function(){
+                $(this).remove();
+            });
+            //jquery对象的remove（）方法：将把jquery对象对应的dom对象节点删除
+            $("#bj").remove();
+
+            //2.清空#game节点
+            //jquery对象的empty（）方法：清空jquery对象对应的dom对象所有的子节点
+            alert("马上要清空了!");
+            $("#game").empty();
+
+        })
+    </script>
+</head>
+<body>
+<p>你喜欢哪个城市？</p>
+<ul id="city">
+    <li id="bj">北京</li>
+    <li>上海</li>
+    <li id="nb">宁波</li>
+</ul>
+<br><br>
+
+<p>你喜欢什么单机游戏?</p>
+<ul id="game">
+    <li id="rl">红警</li>
+    <li>极品飞车</li>
+    <li>实况足球</li>
+</ul>
+
+<br><br>
+<form action="case1.html" name="myform">
+    <input type="radio" name="type" value="city">城市
+    <input type="radio" name="type" value="game">游戏
+
+    name: <input type="text" name="name">
+    <input type="submit" id="Submit" value="submit">
+</form>
+</body>
+</html>

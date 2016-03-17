@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .subBox{width:600px;margin:0 auto;text-align: center;}
+        a{text-decoration:none;color:#0000FF;}
+        .subBox ul{list-style:none;}
+        .subBox ul li{display: block;float:left;width:200px;line-height:20px;}
+        .showmore{clear:both;text-align:center;padding-top:10px;}
+        .showmore a{display:block;width:120px;margin:0 auto;
+            line-height: 24px;border:1px solid #00A000;}
+        .moted a{color:#f50;}
+    </style>
+    <script type="text/javascript" src="jquery-1.9.1/jquery.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var $cate = $("li:gt(3):not(:last)");
+            $cate.hide();
+
+            //为.showmore添加一个onclick响应函数(取消默认行为)
+            $(".showmore").click(function(){
+               if($cate.is(":hidden")){
+
+                   $cate.show();
+                   $("li:contains('佳能'),li:contains('尼康'),li:contains('明基')").addClass("moted");
+
+                   $(".showmore > a > span").text("显示经典品牌");
+               }
+
+                else{
+                   $cate.hide();
+                   $("li").removeClass("moted");
+                   $(".showmore > a > span").text("显示全部品牌");
+               }
+                return false;
+            });
+        })
+
+    </script>
+</head>
+<body>
+    <div class="subBox">
+        <ul>
+            <li><a href="#">佳能</a><i>(30440)</i></li>
+            <li><a href="#">索尼</a><i>(26340)</i></li>
+            <li><a href="#">三星</a><i>(37940)</i></li>
+            <li><a href="#">尼康</a><i>(20154)</i></li>
+            <li><a href="#">松下</a><i>(16987)</i></li>
+            <li><a href="#">卡西欧</a><i>(35402)</i></li>
+            <li><a href="#">柯达</a><i>(85204)</i></li>
+            <li><a href="#">明基</a><i>(65420)</i></li>
+            <li><a href="#">爱国者</a><i>(48962)</i></li>
+            <li><a href="#">富士</a><i>(59620)</i></li>
+            <li><a href="#">其他品牌相机</a><i>(75620)</i></li>
+        </ul>
+        <div class="showmore">
+            <a href="#"><span>显示全部品牌</span></a>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-1.9.1/jquery.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            function showContent(li){
+                alert($(li).text());
+            }
+            $("li").click(function(){
+               showContent(this);
+            });
+
+            //1.同JS的响应函数一样，jquery对象的响应函数若返回false，
+            //可以取消指定元素的默认行为，比如submit,a等
+            //2.val()方法，相当于attr（"value"）,获取表单元素的value属性值。
+            //3.jquery对象的方法的连缀：调用一个方法的返回值还是调用的对象，于是
+            //可以在调用方法的后面依然调用先前的那个对象的其他方法。
+            $(":submit").click(function(){
+                var $type=$(":radio[name='type']:checked");
+                if($type.length == 0){
+                    alert("请选择类型");
+                    return false;
+                }
+                var type = $type.val();
+                var $name = $(":text[name='name']");
+                var name = $name.val();
+
+                //$.trim(str):可以去除str的前后空格.
+                name = $.trim(name);
+                $name.val(name);
+                if(name == ""){
+                    alert("请输入内容");
+                    return false;
+                }
+                $("<li>" + name + "</li>").appendTo($("#"+type))
+                        .click(function(){
+                            showContent(this);
+                        });
+
+                return false;
+            });
+
+        })
+    </script>
+</head>
+<body>
+<p>你喜欢哪个城市？</p>
+<ul id="city">
+    <li id="bj">北京</li>
+    <li>上海</li>
+    <li id="nb">宁波</li>
+</ul>
+<br><br>
+
+<p>你喜欢什么单机游戏?</p>
+<ul id="game">
+    <li id="rl">红警</li>
+    <li>极品飞车</li>
+    <li>实况足球</li>
+</ul>
+
+<br><br>
+<form action="case1.html" name="myform">
+<input type="radio" name="type" value="city">城市
+<input type="radio" name="type" value="game">游戏
+
+name: <input type="text" name="name">
+    <input type="submit" id="Submit" value="submit">
+</form>
+</body>
+</html>

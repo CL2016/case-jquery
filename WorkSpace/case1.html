@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-1.9.1/jquery.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //1.操作文本节点：通过jquery对象的text（）方法
+            alert($("#bj").text());
+            $("#bj").text("南京");
+            //2.操作属性节点：通过jquery对象的attr()方法
+            alert($(":text[name='username']").attr("value"));
+            $(":text[name='username']").attr("value","电饭锅");
+
+            //创建节点并插入节点到指定的节点中
+            /*
+            1.创建节点：使用$(html)方式即可，返回对应节点的jquery对象：
+             $("<li id='js'>江苏</li>")
+
+            2.添加节点：
+            1).appendTo 和 append：主语和宾语的位置不同：
+             $("<li id='js'>江苏</li>").appendTo($("#city"));
+             $("#city").append("<li id='js'>江苏</li>");
+
+            2).prependTo 和 prepend：主语和宾语的位置不同：
+             $("<li id='js'>江苏</li>").prependTo($("#city"));
+             $("#city").prepend("<li id='js'>江苏</li>");
+             */
+            //$("<li id='js'>江苏</li>").appendTo($("#city"));
+            $("#city").append("<li id='js'>江苏</li>");
+            //$("<li id='js'>江苏</li>").prependTo($("#city"));
+            $("#city").prepend("<li id='hb'>河北</li>");
+
+            //$("<li id='tz'>桐照</li>").insertAfter($("#bj"));
+            $("#city").after("<li id='hn'>海南</li>");
+            //$("<li id='hz'>杭州</li>").insertBefore($("#bj"));
+            $("#city").before("<li id='xg'>香港</li>");
+        })
+    </script>
+</head>
+<body>
+    <p>你喜欢哪个城市？</p>
+    <ul id="city">
+        <li id="bj" name="beijing">北京</li>
+        <li>上海</li>
+        <li id="nb">宁波</li>
+    </ul>
+    <br><br>
+
+    <p>你喜欢什么运动?</p>
+    <ul id="game">
+        <li id="ps">爬山</li>
+        <li id="pb">打篮球</li>
+        <li id="pf">踢足球</li>
+    </ul>
+
+    <br><br>
+    gender:
+        <input type="radio" name="gender" value="male">Male
+        <input type="radio" name="gender" value="female">Female
+    <br><br>
+    name: <input type="text" name="username" value="miss">
+</body>
+</html>

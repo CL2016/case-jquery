@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #panel{
+            width:300px;height:250px;
+            font-size:12px; overflow:hidden;
+            border: 1px solid #7D9029;
+            padding:0px;margin: 0px;
+        }
+        .head{
+            float:left;text-align: center;
+            width:300px;
+            height:50px;line-height:50px;
+            background-color: #00A000;
+            font-size:14px;
+        }
+        .content{
+            float:left;
+            widht:300px;
+            height:150px;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.9.1/jquery.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            /*
+            $(".head").toggle(function() {
+                $(".content").show(1000);
+            }, function(){
+                $(".content").hide(1000);
+            });
+            */
+
+            //只改变高度
+            /*
+            $(".head").toggle(function() {
+                $(".content").slideDown(3000);
+            }, function(){
+                $(".content").slideUp(1000);
+            });
+            */
+
+            //只改变透明度
+            /*
+            $(".head").toggle(function() {
+                $(".content").fadeIn(5000);
+            }, function(){
+                $(".content").fadeOut(5000);
+            });
+            */
+
+            //toggle()可以切换元素的可见状态
+            $(".content").show();
+            var i=1;
+            $(".head").click(function(){
+                //$(".content").toggle();
+                i=i-0.1;
+                $(".content").fadeTo("slow",i);
+            });
+        })
+    </script>
+</head>
+<body>
+    <div id="panel">
+        <h4 class="head">什么是jquery？</h4>
+        <div class="content">
+            &nbsp;JQuery是继prototype之后又一个优秀的Javascript库。
+            它是轻量级的js库 ，它兼容CSS3，还兼容各种浏览器（IE 6.0+, FF 1.5+, Safari 2.0+, Opera 9.0+），
+            jQuery2.0及后续版本将不再支持IE6/7/8浏览器。jQuery使用户能更方便地处理HTML（标准通用标记语言下的一个应用）、events、实现动画效果，
+            并且方便地为网站提供AJAX交互。jQuery还有一个比较大的优势是，它的文档说明很全，而且各种应用也说得很详细，同时还有许多成熟的插件可供选择。
+            jQuery能够使用户的html页面保持代码和html内容分离，也就是说，不用再在html里面插入一堆js来调用命令了，只需要定义id即可。
+        </div>
+    </div>
+</body>
+</html>

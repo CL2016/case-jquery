@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-1.9.1/jquery.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("button").click(function(){
+                alert("helloworld");
+                alert($(this).text());
+
+                //获取一个jquery对象
+                var $btn=$("button");
+                //jquery对象是一个数组
+                //alert($btn.length);
+                //可以通过数组的下标转为DOM对象
+               // alert($btn[0].firstChild.nodeValue);
+
+                //由DOM对象转为jquery对象
+                var btn=document.getElementById("btn");
+                alert("--"+$(btn).text());
+
+            });
+            $("p").click(function(){
+                alert($(this).text());
+                $(this).text(".."+$(this).text());
+            });
+
+            $("table:first tr:even").css("background","#ffbbaa");
+
+            $("button").click(function(){
+                alert($(":checkbox:checked").length);
+            })
+        });
+    </script>
+</head>
+<body>
+<button id="btn">ClickMe</button>
+<p>段落1</p>
+<p>段落2</p>
+<p>段落3</p>
+
+<table>
+    <tr>
+        <td>第一行</td><td>第一行</td>
+    </tr>
+    <tr>
+        <td>第一行</td><td>第一行</td>
+    </tr>
+    <tr>
+        <td>第一行</td><td>第一行</td>
+    </tr>
+    <tr>
+        <td>第一行</td><td>第一行</td>
+    </tr>
+</table>
+
+<input type="checkbox" name="test">
+<input type="checkbox" name="test">
+<input type="checkbox" name="test">
+<input type="checkbox" name="test">
+<button>选中的个数</button>
+</body>
+</html>
